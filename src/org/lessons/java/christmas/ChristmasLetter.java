@@ -42,12 +42,16 @@ public class ChristmasLetter {
         boolean hasBeenGood = true;
         Random rd = new Random();
         if (this.wishList.size() > 5) {
-            hasBeenGood = rd.nextBoolean();
-            if (!hasBeenGood) {
-                throw new ChristmasWishlistExeption("Non è stato bravo lettera non inviata 😈");
-            }
+            throw new ChristmasWishlistExeption("Troppi desideri");
         }
-        System.out.println(toString());
+        hasBeenGood = rd.nextBoolean();
+        String message;
+        if (hasBeenGood) {
+            message = toString();
+        } else {
+            throw new ChristmasWishlistExeption("Non è stato bravo lettera non inviata 😈");
+        }
+        System.out.println(message);
 
     }
 
