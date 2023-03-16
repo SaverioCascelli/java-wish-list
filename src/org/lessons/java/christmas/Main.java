@@ -19,9 +19,14 @@ public class Main {
             end = scan.nextLine().equalsIgnoreCase("n");
         }
         Collections.sort(wishList);
-        System.out.println(wishList);
+//        System.out.println(wishList);
 
-
+        ChristmasLetter letter = new ChristmasLetter("Pino", "via platani", wishList);
+        try {
+            letter.send();
+        } catch (ChristmasWishlistExeption e) {
+            System.out.println(e.getMessage());
+        }
         scan.close();
     }
 }
