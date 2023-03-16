@@ -1,7 +1,6 @@
 package org.lessons.java.christmas;
 
-import java.util.List;
-import java.util.Random;
+import java.util.*;
 
 public class ChristmasLetter {
     private String name;
@@ -62,5 +61,25 @@ public class ChristmasLetter {
                 ", address='" + address + '\'' +
                 ", wishList=" + wishList +
                 '}';
+    }
+
+    public Map<String, Integer> contaDesideri() {
+        Map<String, Integer> mp = new HashMap<>();
+        for (String s : this.wishList) {
+            if (!mp.containsKey(s)) {
+                mp.put(s, 1);
+            } else {
+                mp.put(s, mp.get(s) + 1);
+            }
+        }
+        return mp;
+    }
+
+    public Set<String> desideriUnici() {
+        Set<String> st = new HashSet<>();
+        for (String s : this.wishList) {
+            st.add(s);
+        }
+        return st;
     }
 }
